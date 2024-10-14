@@ -22,7 +22,7 @@ namespace ServicioAdministrador
             {
                 //Log DB commands to console
                 contexto.Database.Log = Console.WriteLine;
-                //comentario inecesario
+                //comentario inecesario omagaaaaa
                 //Add a new student and address
                 //var nuevoUsuario = contexto.Usuarios.Add(new Usuarios { Id = 02, Usaername = usuario, LastName = apellido });
                 contexto.SaveChanges(); // Executes Insert command
