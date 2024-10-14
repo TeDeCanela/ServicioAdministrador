@@ -10,25 +10,17 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Spatial;
 
 
-namespace ServicioAdministrador
+namespace AccesoDatos
 {
     public class AccesoBaseDeDatos
     {
-        public void AddUpdateDeleteEntityInConnectedScenario(String usuario, String apellido)
+        public static void AgregarJugadorABaseDeDatos(Jugador jugador)
         {
-            Console.WriteLine("*** AddUpdateDeleteEntityInConnectedScenario Starts ***");
-
-            using (var contexto = new EntidadesGloom())
+            using(var contexto = new EntidadesGloom())
             {
-                //Log DB commands to console
-                contexto.Database.Log = Console.WriteLine;
-                //comentario inecesario
-                //Add a new student and address
-                //var nuevoUsuario = contexto.Usuarios.Add(new Usuarios { Id = 02, Usaername = usuario, LastName = apellido });
-                contexto.SaveChanges(); // Executes Insert command
+                contexto.Jugador.Add(jugador);
+                contexto.SaveChanges();
             }
-
-            Console.WriteLine("*** AddUpdateDeleteEntityInConnectedScenario Ends ***");
-        }
+        }        
     }
 }

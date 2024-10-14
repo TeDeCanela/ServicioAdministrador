@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using BibliotecaClases;
 
 
 namespace ServicioAdministrador
 {
-    [ServiceContract(CallbackContract = typeof(IUsuarioCallback))]
-    interface IUsuarios
+    [ServiceContract(CallbackContract = typeof(IJugadorCallback))]
+    interface IJugador
     {
         [OperationContract(IsOneWay = true)]
-        void AddUser(User user);
+        void AgregarJugador(Jugador jugador);
 
-        [OperationContract(IsOneWay = true)]
-        void SendMessage(string message);
+        //[OperationContract(IsOneWay = true)]
+        //void SendMessage(string message);
     }
 
     [ServiceContract]
-    interface IUsuarioCallback
+    interface IJugadorCallback
     {
         // Método asíncrono para recibir mensajes (no espera respuesta).
         [OperationContract(IsOneWay = true)]
@@ -28,12 +29,10 @@ namespace ServicioAdministrador
 }
 
 
-    [DataContract]
-    public class User
-    {
-        [DataMember]
-        public String Name { get; set; }
-        [DataMember]    
-        public String LastName { get; set; }   
-    }
+    //[DataContract]
+    //public class Jugador
+    //{
+        
+    
+    //}
 

@@ -124,6 +124,12 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BibliotecaClases\BibliotecaClases.csproj">
+      <Project>{dcd9040c-5c2e-4d52-8907-3467e4f08ca6}</Project>
+      <Name>BibliotecaClases</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

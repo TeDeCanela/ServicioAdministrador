@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDatos", "DataAccess\A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatServer", "ChatServer\ChatServer.csproj", "{F6D6817F-E8E3-4626-921C-38F7FA1692BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaClases", "BibliotecaClases\BibliotecaClases.csproj", "{DCD9040C-5C2E-4D52-8907-3467E4F08CA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F6D6817F-E8E3-4626-921C-38F7FA1692BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6D6817F-E8E3-4626-921C-38F7FA1692BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6D6817F-E8E3-4626-921C-38F7FA1692BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCD9040C-5C2E-4D52-8907-3467E4F08CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCD9040C-5C2E-4D52-8907-3467E4F08CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCD9040C-5C2E-4D52-8907-3467E4F08CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCD9040C-5C2E-4D52-8907-3467E4F08CA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

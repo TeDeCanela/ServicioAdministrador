@@ -1,8 +1,10 @@
-﻿using DataAccess;
+﻿using BibliotecaClases;
+using AccesoDatos;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.Threading;
+
 
 namespace ServicioAdministrador
 {
@@ -19,38 +21,39 @@ namespace ServicioAdministrador
         }
     }
 
-    public partial class ImplementacionDeServicio : IUsuarios
+    public partial class ImplementacionDeServicio : IJugador
     {
-        private static List<IUsuarioCallback> clients = new List<IUsuarioCallback>();
-        public void AddUser(User user)
+        
+        public void AgregarJugador(Jugador jugador)
         {
-            AccesoBaseDeDatos daox = new AccesoBaseDeDatos();
-            Console.WriteLine("add user");
-            String message = "User added " + user.Name + " " + user.LastName;
-            daox.AddUpdateDeleteEntityInConnectedScenario(user.Name, user.LastName);
-            OperationContext.Current.GetCallbackChannel<IUsuarioCallback>().UsersResponse(message);
-            var callback = OperationContext.Current.GetCallbackChannel<IUsuarioCallback>();
+            try
+            {
+                var nuevoJugador = new Jugador 
+                {
+                    nombreUsuario = jugador.nombreUsuario,
+                    nombre = jugador.nombre,
+                    apellidos = jugador.apellidos,
+                    correo = jugador.correo,
+                    contraseña = jugador.contraseña,
+                    tipo = jugador.tipo,
+                };
 
-            if (!clients.Contains(callback))
+                AccesoBaseDeDatos.AgregarJugadorABaseDeDatos(nuevoJugador);
+
+            }catch (Exception ex)
             {
-                clients.Add(callback);
-                NotifyClients($"{user.Name} se ha unido al chat.");
+                Console.WriteLine("Error al ejecutar el registro");
             }
 
         }
-        public void SendMessage(string message)
+
+        
+
+        void IJugador.AgregarJugador(BibliotecaClases.Jugador jugador)
         {
-            foreach (var client in clients)
-            {
-                client.ReceiveMessage(message);
-            }
+            throw new NotImplementedException();
         }
-        private void NotifyClients(string message)
-        {
-            foreach (var client in clients)
-            {
-                client.ReceiveMessage(message);  // Notificar a todos los clientes
-            }
-        }
+
+       
     }
 }

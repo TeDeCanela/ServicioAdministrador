@@ -17,4 +17,5 @@ namespace ServicioAdministrador
         [OperationContract]
         void Response(int result);
     }
+
 }

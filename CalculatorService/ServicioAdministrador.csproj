@@ -57,10 +57,14 @@
   <ItemGroup>
     <Compile Include="ImplementacionDeServicio.cs" />
     <Compile Include="IServicioAdministrador.cs" />
-    <Compile Include="IUsuarios.cs" />
+    <Compile Include="IJugador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BibliotecaClases\BibliotecaClases.csproj">
+      <Project>{dcd9040c-5c2e-4d52-8907-3467e4f08ca6}</Project>
+      <Name>BibliotecaClases</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccess\AccesoDatos.csproj">
       <Project>{870A4FD4-ED64-447F-A36B-2ACE5D712873}</Project>
       <Name>AccesoDatos</Name>
