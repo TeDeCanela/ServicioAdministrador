@@ -12,6 +12,8 @@ namespace Host
                 host.Open();
                 Console.WriteLine("Server is running");
                 Console.ReadLine();
+                Console.ReadLine();
+                Console.ReadLine();
             }
         }
 
