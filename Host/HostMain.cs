@@ -10,9 +10,8 @@ namespace Host
             using (ServiceHost host = new ServiceHost(typeof(ServicioAdministrador.ImplementacionDeServicio)))
             {
                 host.Open();
-                Console.WriteLine("Server is running");
-                Console.ReadLine();
-                Console.ReadLine();
+                Console.WriteLine("Server is running now");
+
                 Console.ReadLine();
             }
         }
