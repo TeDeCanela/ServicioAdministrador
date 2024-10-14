@@ -8,8 +8,7 @@ namespace ServicioAdministrador
     [ServiceContract(CallbackContract =typeof(IServicioAdministradorCallback))]
     public interface IServicioAdministrador
     {
-        [OperationContract(IsOneWay = true)]
-        void Sum(int a, int b);
+        
     }
     [ServiceContract]
     public interface IServicioAdministradorCallback

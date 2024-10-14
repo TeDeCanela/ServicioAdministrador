@@ -1,6 +1,7 @@
 ﻿using BibliotecaClases;
 //using DataAccess;
 using System;
+using System.Data.Entity;
 
 namespace AccesoDatos
 {
@@ -27,6 +28,18 @@ namespace AccesoDatos
 
 
             }
-        }        
+        }
+        public static void ActualizarJugadorABaseDeDatos(BibliotecaClases.Jugador jugador)
+        {
+            using (var contexto = new EntidadesGloom())
+            {
+                var jugadorEntidad = ConvertirAJugador(jugador);
+                contexto.Jugadores.Attach(jugadorEntidad);
+                contexto.Entry(jugadorEntidad).State = EntityState.Modified;
+                contexto.SaveChanges();
+
+
+            }
+        }
     }
 }
