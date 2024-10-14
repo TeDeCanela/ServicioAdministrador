@@ -1,25 +1,31 @@
-﻿using DataAccess;
+﻿using BibliotecaClases;
+//using DataAccess;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Data.Entity.Spatial;
-
 
 namespace AccesoDatos
 {
     public class AccesoBaseDeDatos
     {
-        public static void AgregarJugadorABaseDeDatos(Jugador jugador)
+        public static Jugador ConvertirAJugador(BibliotecaClases.Jugador jugador)
+        {
+            return new Jugador
+            {
+                nombreUsuario = jugador.nombreUsuario,
+                nombre = jugador.nombre,
+                apellidos = jugador.apellidos,
+                correo = jugador.correo,
+                tipo = jugador.tipo,
+            };
+        }
+        public static void AgregarJugadorABaseDeDatos(BibliotecaClases.Jugador jugador)
         {
             using(var contexto = new EntidadesGloom())
             {
-                contexto.Jugador.Add(jugador);
+                var jugadorEntidad = ConvertirAJugador(jugador);
+                contexto.Jugadores.Add(jugadorEntidad);
                 contexto.SaveChanges();
+
+
             }
         }        
     }

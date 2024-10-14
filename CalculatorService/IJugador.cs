@@ -24,7 +24,7 @@ namespace ServicioAdministrador
         void ReceiveMessage(string message);
 
         [OperationContract]
-        void UsersResponse(string response);
+        void RespuestaJugador(string response);
     }
 }
 

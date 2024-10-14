@@ -24,11 +24,11 @@ namespace ServicioAdministrador
     public partial class ImplementacionDeServicio : IJugador
     {
         
-        public void AgregarJugador(Jugador jugador)
+        public void AgregarJugador(BibliotecaClases.Jugador jugador)
         {
             try
             {
-                var nuevoJugador = new Jugador 
+                var nuevoJugador = new BibliotecaClases.Jugador
                 {
                     nombreUsuario = jugador.nombreUsuario,
                     nombre = jugador.nombre,
@@ -39,8 +39,12 @@ namespace ServicioAdministrador
                 };
 
                 AccesoBaseDeDatos.AgregarJugadorABaseDeDatos(nuevoJugador);
+                String mensaje = "Jugador agregado " + jugador.nombreUsuario;
+                OperationContext.Current.GetCallbackChannel<IJugadorCallback>().RespuestaJugador(mensaje);
 
-            }catch (Exception ex)
+
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine("Error al ejecutar el registro");
             }

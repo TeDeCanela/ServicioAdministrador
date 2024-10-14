@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataAccess
+namespace AccesoDatos
 {
     using System;
     using System.Data.Entity;
@@ -28,7 +28,8 @@ namespace DataAccess
         public virtual DbSet<Amigos> Amigos { get; set; }
         public virtual DbSet<CartaEvento> CartaEvento { get; set; }
         public virtual DbSet<CartaFamiliar> CartaFamiliar { get; set; }
-        public virtual DbSet<Jugador> Jugador { get; set; }
+        public virtual DbSet<Jugador> Jugadores { get; set; }
+        public object Jugador { get; set; }
         public virtual DbSet<Modificador> Modificador { get; set; }
         public virtual DbSet<Muerte> Muerte { get; set; }
         public virtual DbSet<Partida> Partida { get; set; }
