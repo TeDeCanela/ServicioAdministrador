@@ -18,6 +18,6 @@ namespace DataAccess
         public string JugadorAmigo { get; set; }
         public string Estado { get; set; }
     
-        public virtual Jugador Jugador { get; set; }
+        public virtual Amigos amigos { get; set; }
     }
 }
