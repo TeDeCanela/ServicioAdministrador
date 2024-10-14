@@ -21,15 +21,15 @@ namespace ServicioAdministrador
 
     public partial class ImplementacionDeServicio : IUsuarios
     {
-        private static List<IUsersManagerCallback> clients = new List<IUsersManagerCallback>();
+        private static List<IUsuarioCallback> clients = new List<IUsuarioCallback>();
         public void AddUser(User user)
         {
             AccesoBaseDeDatos daox = new AccesoBaseDeDatos();
             Console.WriteLine("add user");
             String message = "User added " + user.Name + " " + user.LastName;
             daox.AddUpdateDeleteEntityInConnectedScenario(user.Name, user.LastName);
-            OperationContext.Current.GetCallbackChannel<IUsersManagerCallback>().UsersResponse(message);
-            var callback = OperationContext.Current.GetCallbackChannel<IUsersManagerCallback>();
+            OperationContext.Current.GetCallbackChannel<IUsuarioCallback>().UsersResponse(message);
+            var callback = OperationContext.Current.GetCallbackChannel<IUsuarioCallback>();
 
             if (!clients.Contains(callback))
             {

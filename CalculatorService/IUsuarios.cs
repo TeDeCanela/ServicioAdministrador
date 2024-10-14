@@ -5,7 +5,7 @@ using System.ServiceModel;
 
 namespace ServicioAdministrador
 {
-    [ServiceContract(CallbackContract = typeof(IUsersManagerCallback))]
+    [ServiceContract(CallbackContract = typeof(IUsuarioCallback))]
     interface IUsuarios
     {
         [OperationContract(IsOneWay = true)]
@@ -16,7 +16,7 @@ namespace ServicioAdministrador
     }
 
     [ServiceContract]
-    interface IUsersManagerCallback
+    interface IUsuarioCallback
     {
         // Método asíncrono para recibir mensajes (no espera respuesta).
         [OperationContract(IsOneWay = true)]
