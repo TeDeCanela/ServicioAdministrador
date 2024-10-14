@@ -20,7 +20,6 @@ namespace ServicioAdministrador
 
             using (var contexto = new EntidadesGloom())
             {
-                //Log DB commands to console
                 contexto.Database.Log = Console.WriteLine;
                 //comentario inecesario omagaaaaa
                 //Add a new student and address
