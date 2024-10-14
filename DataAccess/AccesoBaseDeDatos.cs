@@ -18,13 +18,13 @@ namespace ServicioAdministrador
         {
             Console.WriteLine("*** AddUpdateDeleteEntityInConnectedScenario Starts ***");
 
-            using (var contexto = new DemoEntities())
+            using (var contexto = new EntidadesGloom())
             {
                 //Log DB commands to console
                 contexto.Database.Log = Console.WriteLine;
 
                 //Add a new student and address
-                var nuevoUsuario = contexto.Usuarios.Add(new Usuarios { Id = 02, Usaername = usuario, LastName = apellido });
+                //var nuevoUsuario = contexto.Usuarios.Add(new Usuarios { Id = 02, Usaername = usuario, LastName = apellido });
                 contexto.SaveChanges(); // Executes Insert command
             }
 

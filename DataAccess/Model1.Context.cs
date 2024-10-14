@@ -13,10 +13,10 @@ namespace DataAccess
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DemoEntities : DbContext
+    public partial class EntidadesGloom : DbContext
     {
-        public DemoEntities()
-            : base("name=DemoEntities")
+        public EntidadesGloom()
+            : base("name=EntidadesGloom")
         {
         }
     
@@ -25,6 +25,14 @@ namespace DataAccess
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<Amigos> Amigos { get; set; }
+        public virtual DbSet<CartaEvento> CartaEvento { get; set; }
+        public virtual DbSet<CartaFamiliar> CartaFamiliar { get; set; }
+        public virtual DbSet<Jugador> Jugador { get; set; }
+        public virtual DbSet<Modificador> Modificador { get; set; }
+        public virtual DbSet<Muerte> Muerte { get; set; }
+        public virtual DbSet<Partida> Partida { get; set; }
+        public virtual DbSet<Sala> Sala { get; set; }
+        public virtual DbSet<Mensaje> Mensaje { get; set; }
     }
 }
