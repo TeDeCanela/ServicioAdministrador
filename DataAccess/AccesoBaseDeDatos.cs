@@ -1,7 +1,10 @@
 ﻿using BibliotecaClases;
+using DataAccess;
+
 //using DataAccess;
 using System;
 using System.Data.Entity;
+using System.Data.SqlClient;
 
 namespace AccesoDatos
 {
@@ -20,25 +23,35 @@ namespace AccesoDatos
         }
         public static void AgregarJugadorABaseDeDatos(BibliotecaClases.Jugador jugador)
         {
-            using(var contexto = new EntidadesGloom())
+            try
             {
-                var jugadorEntidad = ConvertirAJugador(jugador);
-                contexto.Jugadores.Add(jugadorEntidad);
-                contexto.SaveChanges();
-
-
+                using (var contexto = new EntidadesGloom())
+                {
+                    var jugadorEntidad = ConvertirAJugador(jugador);
+                    contexto.Jugadores.Add(jugadorEntidad);
+                    contexto.SaveChanges();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ManejadorExcepciones.CrearSqlException(ex);
             }
         }
         public static void ActualizarJugadorABaseDeDatos(BibliotecaClases.Jugador jugador)
         {
-            using (var contexto = new EntidadesGloom())
+            try
             {
-                var jugadorEntidad = ConvertirAJugador(jugador);
-                contexto.Jugadores.Attach(jugadorEntidad);
-                contexto.Entry(jugadorEntidad).State = EntityState.Modified;
-                contexto.SaveChanges();
-
-
+                using (var contexto = new EntidadesGloom())
+                {
+                    var jugadorEntidad = ConvertirAJugador(jugador);
+                    contexto.Jugadores.Attach(jugadorEntidad);
+                    contexto.Entry(jugadorEntidad).State = EntityState.Modified;
+                    contexto.SaveChanges();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ManejadorExcepciones.CrearSqlException(ex);
             }
         }
     }

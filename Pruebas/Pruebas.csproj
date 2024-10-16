@@ -59,6 +59,7 @@
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JugadorTest.cs" />
     <Compile Include="SpyCallbackCalculatorService.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +72,10 @@
     <ProjectReference Include="..\CalculatorService\ServicioAdministrador.csproj">
       <Project>{911ad607-5f20-4f27-a48e-9bd80c28b440}</Project>
       <Name>ServicioAdministrador</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\AccesoDatos.csproj">
+      <Project>{870A4FD4-ED64-447F-A36B-2ACE5D712873}</Project>
+      <Name>AccesoDatos</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

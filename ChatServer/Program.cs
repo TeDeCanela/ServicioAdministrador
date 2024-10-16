@@ -18,7 +18,7 @@ class ChatServer
         serverSocket.Bind(endpoint);
         serverSocket.Listen(5);
 
-        Console.WriteLine("Servidor iniciado en el puerto 5000. Esperando conexiones...");
+        Console.WriteLine("Servidor iniciado. Esperando conexiones...");
         while (true)
         {
             Socket clientSocket = serverSocket.Accept();

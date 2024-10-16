@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ServiceModel;
 using System.Threading;
 using System.Data.SqlClient;
+using DataAccess;
 
 
 namespace ServicioAdministrador
@@ -36,9 +37,9 @@ namespace ServicioAdministrador
 
 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                Console.WriteLine("Error al ejecutar el registro");
+                throw ManejadorExcepciones.CrearSqlException(ex);
             }
 
         }
@@ -65,7 +66,7 @@ namespace ServicioAdministrador
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Error al ejecutar el registro");
+                throw ManejadorExcepciones.CrearSqlException(ex);
             }
         }
 
